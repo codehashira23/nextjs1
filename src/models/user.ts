@@ -5,10 +5,10 @@ export interface IUser{
     name : string;
     email: string;
     password: string;
+    role : "Examiner" | "Admin" | "Student"; // enum values for Role        
     _id?: mongoose.Types.ObjectId;
     createdAt?: Date;
     updatedAt?: Date;
-    role : "Examiner" | "Admin" | "Student"; // enum values for Role        
 }
 
 const userSchema = new Schema<IUser> ({
@@ -29,4 +29,4 @@ userSchema.pre("save", async function (next) {
 });
 
 const User =  models?.User || model<IUser>("User", userSchema);
-export default User;
+export default User

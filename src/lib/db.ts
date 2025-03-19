@@ -9,7 +9,9 @@ if (!MONGODB_URI) {// agar MongoDB URI nahi mili toh error throw karega
 let cached = global.mongoose;
 
 if(!cached){
-  cached = global.mongoose = {conn: null, promise: null}; // agar cached nahi hai toh global mongoose mai ek object banayenge jisme conn aur promise dono null honge
+  cached = global.mongoose = {
+    conn: null, 
+    promise: null}; // agar cached nahi hai toh global mongoose mai ek object banayenge jisme conn aur promise dono null honge
 }
 
 export async function connectToDatabase() {

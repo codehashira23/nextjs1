@@ -28,7 +28,7 @@ export default function SignupPage() {
 
             <div className="bg-white p-6 rounded-lg shadow-lg w-96">
 
-                <h2 className="text-2xl font-bold text-center mb-4" >Signup</h2>
+                <h2 className="text-2xl font-bold text-center mb-4" >Sign up</h2>
                 <form onSubmit={handleSignup}>
                     <input type="email"
                         placeholder="Email"
@@ -55,6 +55,10 @@ export default function SignupPage() {
                     >
                         Signup
                     </button>
+
+                    <p className="text-center text-sm mt-4">
+                        Already a user? <a href="/login" className="text-blue-600">Login</a>
+                    </p>
 
 
                 </form>
