@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const userRole = "admin"; // Replace this with dynamic role fetching logic if needed
+
 const Navbar = () => {
     return (
         <nav className="bg-blue-600 text-white py-4 shadow-md">
@@ -9,7 +11,9 @@ const Navbar = () => {
                     <NavLink href="/dashboard" label="Dashboard" />
                     <NavLink href="/exams" label="Exams" />
                     <NavLink href="/results" label="Results" />
-                    <NavLink href="/monitoring" label="Monitoring" />
+                    {userRole !== "admin" && <NavLink href="/monitoring" label="Monitoring" />}
+                    <NavLink href="/login" label="login" />
+                    <NavLink href="/signup" label="sign up" />
                 </div>
             </div>
         </nav>

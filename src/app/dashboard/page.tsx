@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
 
-const userRole = "student"; // Change to "admin" for admin dashboard
+const userRole = "admin"; // Change to "admin" for admin dashboard
 
 const DashboardPage = () => {
     return (
         <div className="min-h-screen p-6 bg-gray-100">
             <h1 className="text-3xl font-bold mb-4">Welcome to Exam Portal</h1>
 
-            {userRole === "student" ? <StudentDashboard /> : <AdminDashboard />}
+            {userRole !== "admin" ? <StudentDashboard /> : <AdminDashboard />}
         </div>
     );
 };
@@ -24,12 +24,16 @@ const StudentDashboard = () => {
         <div>
             <h2 className="text-xl font-semibold mb-3">Upcoming Exams</h2>
             <div className="grid gap-4">
+
                 {upcomingExams.map((exam, idx) => (
                     <div key={idx} className="p-4 bg-white shadow rounded">
                         <h3 className="text-lg font-bold">{exam.name}</h3>
                         <p className="text-gray-600">Date: {exam.date}</p>
+
                     </div>
+
                 ))}
+
             </div>
         </div>
     );
@@ -48,6 +52,11 @@ const AdminDashboard = () => {
             <StatCard title="Total Students" value={stats.totalStudents} />
             <StatCard title="Total Exams" value={stats.totalExams} />
             <StatCard title="Active Exams" value={stats.activeExams} />
+
+            <p className="text-center text-sm mt-4">
+                Do you want to create a new exam ? <a href="/exams/create" className="text-blue-600 hover:text-cyan-300">Add Exam</a>
+            </p>
+
         </div>
     );
 };

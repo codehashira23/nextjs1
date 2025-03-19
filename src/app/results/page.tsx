@@ -21,8 +21,8 @@ const sampleResults = [
 
 const ResultsPage = () => {
     return (
-        <div className="min-h-screen p-6 bg-gray-100">
-            <h1 className="text-2xl font-bold mb-4">Your Exam Results</h1>
+        <div className="min-h-screen p-6 bg-gray-800">
+            <h1 className="text-2xl font-bold mb-4 text-amber-50">Your Exam Results</h1>
             <div className="grid gap-4">
                 {sampleResults.map((result, idx) => (
                     <ResultCard key={idx} result={result} />
